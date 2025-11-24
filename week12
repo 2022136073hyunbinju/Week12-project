@@ -1,1 +1,37 @@
 클로스플랫폼(Cross-platform)은 말 그대로 여러 운영체제나 환경에서 동일하게 동작할 수 있는 기술이나 소프트웨어를 뜻함.
+
+
+import 'package:bamtol_market_app/app.dart';
+import 'package:bamtol_market_app/root.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      title: '당근마켓 클론코딩',
+      initialRoute: '/home',
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          elevation: 0,
+          color: Color(0xff212123),
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        scaffoldBackgroundColor: const Color(0xFFFF4444), 
+      ),
+      getPages: [
+        GetPage(name: '/', page: () => const App()),
+        GetPage(name: '/home', page: () => const Root()),
+      ],
+    );
+  }
+}
